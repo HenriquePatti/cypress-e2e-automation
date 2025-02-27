@@ -1,5 +1,12 @@
 {
   "devDependencies": {
     "cypress": "^14.1.0"
+  },
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --config viewportWidth=1280,viewportHeight=720",
+    "test:chrome": "cypress run --browser chrome --config viewportWidth=1280,viewportHeight=720",
+    "test:headless": "cypress run --headless --config viewportWidth=1280,viewportHeight=720",
+    "test:mobile": "cypress run --config viewportWidth=390,viewportHeight=844"
   }
 }
