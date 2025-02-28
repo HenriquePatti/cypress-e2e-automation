@@ -1,4 +1,61 @@
 {
+  "name": "cypress-e2e-automation",
+  "version": "1.0.0",
+  "description": "Automated end-to-end (E2E) testing with Cypress, GitHub Actions CI/CD, Mocha, and JUnit reporting",
+  "keywords": [
+    "cypress",
+    "e2e",
+    "automation",
+    "test automation",
+    "cypress testing",
+    "end-to-end testing",
+    "cypress github actions",
+    "ci/cd testing",
+    "mocha",
+    "junit",
+    "test report",
+    "github actions",
+    "qa",
+    "quality assurance",
+    "automated testing",
+    "continuous integration",
+    "continuous delivery",
+    "cypress best practices",
+    "headless testing",
+    "functional testing",
+    "cypress e2e",
+    "unit testing",
+    "regression testing",
+    "selenium alternative",
+    "web automation",
+    "testes automatizados",
+    "teste de software",
+    "automação de testes",
+    "teste e2e",
+    "cypress brasil",
+    "qualidade de software",
+    "cypress pipeline",
+    "testes funcionais",
+    "cypress github actions",
+    "integração contínua",
+    "entrega contínua",
+    "ci/cd no github",
+    "melhores práticas cypress"
+  ],
+  "author": {
+    "name": "Henrique Patti",
+    "email": "rezendepatti@gmail.com",
+    "url": "https://github.com/HenriquePatti"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HenriquePatti/cypress-e2e-automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HenriquePatti/cypress-e2e-automation/issues"
+  },
+  "homepage": "https://github.com/HenriquePatti/cypress-e2e-automation#readme",
+  "license": "MIT",
   "devDependencies": {
     "cypress": "^14.1.0",
     "mocha-junit-reporter": "^2.2.1"
@@ -8,6 +65,8 @@
     "cypress:run": "cypress run --config viewportWidth=1280,viewportHeight=720",
     "test:chrome": "cypress run --browser chrome --config viewportWidth=1280,viewportHeight=720",
     "test:headless": "cypress run --headless --config viewportWidth=1280,viewportHeight=720",
-    "test:mobile": "cypress run --config viewportWidth=390,viewportHeight=844"
+    "test:mobile": "cypress run --config viewportWidth=390,viewportHeight=844",
+    "test:smoke": "cypress run --spec 'cypress/e2e/smoke/*'",
+    "test:login": "cypress run --spec 'cypress/e2e/login/*'"
   }
 }
