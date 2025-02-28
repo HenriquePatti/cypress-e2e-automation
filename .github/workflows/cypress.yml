@@ -1,0 +1,46 @@
+name: Cypress Tests
+
+on: 
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+      - feat/*
+      - fix/*
+      - chore/*
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests with JUnit reporter
+        run: npx cypress run --browser chrome --headless --reporter mocha-junit-reporter
+
+      - name: Upload test results (JUnit)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-test-results
+          path: results/junit/
+          retention-days: 7
